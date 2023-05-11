@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <body>
+    <script>
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = 400;
+      canvas.height = 400;
+
+      canvas.setAttribute('style', 'display:block; margin:auto; background-color:#ddd');
+      document.body.appendChild(canvas);
+
+
+      const ball = {
+	  x: null,
+	  y: null,
+	  r: 5,
+	  dx: 3,
+	  dy: 3,
+
+	  update: function() {
+	      ctx.fillRect(this.x, this.y, this.r, this.r);
+	      ctx.fill();
+
+	      this.x += this.dx;
+	      this.y += this.dy;
+	  }
+      }
+
+      const init = () => {
+	  ball.x = canvas.width / 2;
+	  ball.y = canvas.height / 2;
+      }
+
+      const main = () => {
+	  ctx.clearRect(0,0,canvas.width,canvas.height);
+	  ball.update();
+	  window.requestAnimationFrame(main);
+      }
+
+      init();
+      main();
+      
+	  
+	      
+
+
+      
+
+    </script>
+  </body>
+</html>
+
+      
+	  
+	  
+      
